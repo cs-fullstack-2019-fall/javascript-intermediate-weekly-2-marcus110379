@@ -23,7 +23,11 @@ class Question {
     checker() {
 
         let userInput = parseInt(prompt("enter a answer"));
-        if(userInput === q1.correctAnswerIndex){
+        // KEY: In your 'checker' class method you are always checking the user answer against your question 1 answer if if question 2 or 3.
+        // YOUR VERSION
+        //if(userInput === q1.correctAnswerIndex){
+        // KEY: Should use the answer for 'this' question instance like this:
+        if(userInput === this.correctAnswerIndex){
             alert("correct answer");
         }else{
             alert("wrong answer");
@@ -43,5 +47,12 @@ questionList.push(q1);
 questionList.push(q2);
 questionList.push(q3);
 
-q1.questions();
-q1.checker();
+// Looks pretty good! The only thing you didn't do is the random part.
+let index_of_a_question = Math.floor(Math.random() * questionList.length); // get a random index for question array
+questionList[index_of_a_question].questions(); // log question/answers at that index
+questionList[index_of_a_question].checker(); // use class method and get user's guess/check it
+//
+
+// YOUR version
+// q1.questions();
+// q1.checker();
