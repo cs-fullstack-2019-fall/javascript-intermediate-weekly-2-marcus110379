@@ -1,3 +1,31 @@
+You did well! Short clean and concise, just as it should have been. I found only 2 issues...
+
+1) In your 'checker' class method you are always checking the user answer against your question 1 answer if if question 2 or 3.
+
+You have :
+```
+       let userInput = parseInt(prompt("enter a answer"));
+       if(userInput === q1.correctAnswerIndex)
+```
+Should be:
+```
+       let userInput = parseInt(prompt("enter a answer"));
+       if(userInput === this.correctAnswerIndex)
+```       
+2) You didn't pick a random question. All your code was fine, you just didn't use the random array index returned and always asked q1 question:
+// KEY: Looks pretty good! The only thing you didn't do is the random part. Like this....
+```
+let index_of_a_question = Math.floor(Math.random() * questionList.length); // get a random index for question array
+questionList[index_of_a_question].questions(); // log question/answers at that index
+questionList[index_of_a_question].checker(); // use class method and get user's guess/check it
+//
+// YOUR version
+// q1.questions();
+// q1.checker();
+```
+Still, overall you did great. Well done!
+
+
 # Build a Simple Quiz Program
 
 ## Weekly Project (Total 10 points)
